@@ -1,0 +1,91 @@
+<div class="job-application-container">
+    <mat-stepper linear #stepper>
+        <mat-step label="Справка об отсутствии судимости" [stepControl]="arrestedApplicationFormGroup" state="gavel">
+            <form [formGroup]="arrestedApplicationFormGroup">
+                <p>Для трудоустойства в УрФУ требуется справки о наличии (отсутствии) судимости и (или) факта уголовного преследования либо о прекращении уголовного преследования.</p>
+                <p>Есть несколько способов подать заявление на получение данной справки:</p>
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Через Госуслуги</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        Для получения справки следуйте по шагам:
+                        <ol>
+                            <li><a href="https://www.gosuslugi.ru/16587" target="_blank">Открыть форму заявления</a> получения справки об отсутствии судимости</li>
+                            <li>Выбрать электронную справку (наиболее предпочтительный вариант)</li>
+                            <li>Заполнить заявление, подгрузить нужные файлы</li>
+                            <li>Ожидать до 30 дней (в редких случаях срок оказания услуги может быть продлён ещё на 30 дней)</li>
+                        </ol>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Через МФЦ</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        Для получения справки следуйте по шагам:
+                        <ol>
+                            <li><a href="https://mfc66.ru/services/appointment" target="_blank">Записаться онлайн</a> или прийти в <a href="https://mfc66.ru/offices" target="_blank">любой МФЦ Свердловской области</a></li>
+                            <li>Выбрать услугу <strong>МВД. Справки</strong></li>
+                            <li>Заполнить заявление у оператора</li>
+                            <li>Ожидать до 30 дней (в редких случаях срок оказания услуги может быть продлён ещё на 30 дней)</li>
+                        </ol>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Через ИЦ ГУ МВД России</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <a href="https://66.мвд.рф/citizens/uslugi/13/Gosudarstvennaja_usluga_po_vidache_sprav" target="_blank">Подробнее...</a>
+                    </mat-expansion-panel>
+                </mat-accordion>
+                <div class="applies-list">
+                    <mat-checkbox formControlName="applicationHasReceived" required>Справка получена<span style="color:red;">*</span></mat-checkbox>
+                    <strong>Для справки, полученной через Госуслуги:</strong>
+                    <mat-checkbox>Справка отправлена на электронный адрес <code title="Копировать в буфер обмена" (click)="copyToClipboard()">spravka.hr&#64;urfu.ru</code></mat-checkbox>
+                </div>
+                <button mat-button matStepperNext>Далее</button>
+            </form>
+        </mat-step>
+        <mat-step label="Собрать необходимые документы">
+            <strong>Обязательные документы</strong>
+            <mat-selection-list #personalDocs>
+                <mat-list-option togglePosition="before">Паспорт, копия паспорта 1 страница и страницы с пропиской</mat-list-option>
+                <mat-list-option togglePosition="before">СНИЛС, копия СНИЛС или уведомление о регистрации в форме АДИ-РЕГ</mat-list-option>
+                <mat-list-option togglePosition="before">ИНН, копия ИНН или <a href="https://www.gosuslugi.ru/help/faq/egrn_fns/578140" target="_blank">выписка из ЕГРН в отношении физ.лица</a></mat-list-option>
+                <mat-list-option togglePosition="before">Трудовая книжка или <a href="https://www.gosuslugi.ru/600302" target="_blank">выписка сведений о трудовой деятельности из ПФР</a></mat-list-option>
+                <mat-list-option togglePosition="before">ФЛГ не менее 1 года</mat-list-option>
+                <mat-list-option togglePosition="before">Прививочный сертификат</mat-list-option>
+                <mat-list-option togglePosition="before">Данные о прививке Ковид (в прививочном или сертификат госуслуг)</mat-list-option>
+                <mat-list-option togglePosition="before">2 цветных фото 3&#xD7;4</mat-list-option>
+                <mat-list-option togglePosition="before">Реквизиты карты Мир (желательно Сбер или Синара)</mat-list-option>
+            </mat-selection-list>
+
+            <strong>Данные об образовании</strong>
+            <p>Принимаются только лица, имеющие специальности по направлениям подготовки <a href="https://classifikators.ru/okso/IV.2" target="_blank">инженерного дела</a> или <a href="https://classifikators.ru/okso/V.1" target="_blank">математических наук</a></p>
+            <mat-selection-list [multiple]="false">
+                <mat-list-option togglePosition="before">Диплом о высшем образовании</mat-list-option>
+                <mat-list-option togglePosition="before">Диплом о среднем образовании (обязательный стаж 6 месяцев по айти-специальности в трудовой)</mat-list-option>
+                <mat-list-option togglePosition="before">Справка об обучении в образовательном учреждении высшего образования*</mat-list-option>
+            </mat-selection-list>
+
+            <strong>Для мужчин</strong>
+            <mat-selection-list #manDocs>
+                <mat-list-option togglePosition="before">Приписное свидетельство или военный билет</mat-list-option>
+            </mat-selection-list>
+
+            <strong>Для менявших фамилию, имя или отчество</strong>
+            <mat-selection-list>
+                <mat-list-option togglePosition="before">Свидетельство о перемене имени и копия свидетельства</mat-list-option>
+            </mat-selection-list>
+
+            <mat-divider/>
+            * в справке обязательно должна быть указана специальность; если студент УрФУ, <span class="underlined">ещё и</span> распечатка электронной зачётки с печатью деканата
+        </mat-step>
+<!--        <mat-step label="Распечатать заявление">-->
+<!--        </mat-step>-->
+<!--        <mat-step label="Трудоустроиться">-->
+<!--        </mat-step>-->
+
+        <ng-template matStepperIcon="gavel">
+            <mat-icon>gavel</mat-icon>
+        </ng-template>
+    </mat-stepper>
+</div>
