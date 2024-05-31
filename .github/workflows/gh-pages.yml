@@ -15,7 +15,8 @@ jobs:
     - name: Install dependencies
       run: yarn install
     - name: Build project
-      run: yarn build
+      run: |
+        yarn build --base-href=/kandidat/ --output-path=dist
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.6.1
       with:
