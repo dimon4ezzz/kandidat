@@ -23,6 +23,7 @@ import {MatListOption, MatSelectionList} from "@angular/material/list";
 import {MatDivider} from "@angular/material/divider";
 import {MatIcon} from "@angular/material/icon";
 import {STEPPER_GLOBAL_OPTIONS} from "@angular/cdk/stepper";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {STEPPER_GLOBAL_OPTIONS} from "@angular/cdk/stepper";
     MatListOption,
     MatDivider,
     MatStepperIcon,
-    MatIcon
+    MatIcon,
+    NgOptimizedImage
   ],
   providers: [
     provideAnimationsAsync(),
