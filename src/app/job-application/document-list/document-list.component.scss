@@ -1,0 +1,17 @@
+.applies-list {
+  display: flex;
+  flex-direction: column;
+  p {
+    margin-left: 2em;
+    padding-left: 4px;
+    border-left: 4px darkorange solid;
+  }
+}
+
+.action-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 15px;
+  gap: 15px;
+}

@@ -1,0 +1,59 @@
+<p>Для трудоустойства в УрФУ требуется справка о наличии (отсутствии) судимости и (или) факта уголовного преследования либо о прекращении уголовного преследования.</p>
+<p>Есть несколько способов подать заявление на получение данной справки</p>
+
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>Через Госуслуги</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        Для получения справки следуйте по шагам:
+        <ol>
+            <li><a href="https://www.gosuslugi.ru/16587" target="_blank">Открыть форму заявления</a> получения справки об отсутствии судимости</li>
+            <li>Выбрать электронную справку (наиболее предпочтительный вариант)</li>
+            <li>Заполнить заявление, подгрузить нужные файлы</li>
+            <li>Ожидать до 30 дней (в среднем около двух недель, но в редких случаях срок оказания услуги может быть продлён ещё на 30 дней)</li>
+        </ol>
+        <div class="applies-list">
+            <mat-checkbox class="required" required>Справка получена</mat-checkbox>
+            <mat-checkbox class="required" required>Справка отправлена на электронный адрес <code matTooltip="Копировать в буфер обмена" (click)="copyToClipboard()">spravka.hr&#64;urfu.ru</code></mat-checkbox>
+            <img ngSrc="/gosuslugi.png" width="900" height="449" alt="скриншот с госуслуг" [priority]="true">
+        </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>Через МФЦ</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        Для получения справки следуйте по шагам:
+        <ol>
+            <li><a href="https://mfc66.ru/services/appointment" target="_blank">Записаться онлайн</a> или прийти в <a href="https://mfc66.ru/offices" target="_blank">любой МФЦ Свердловской области</a> (для жителей Свердловской области; для остальных регионов необходимо выбрать свой регион на сайте)</li>
+            <li>Выбрать услугу <strong>МВД. Справки</strong></li>
+            <li>Заполнить заявление у оператора</li>
+            <li>Ожидать до 30 дней (в редких случаях срок оказания услуги может быть продлён ещё на 30 дней)</li>
+        </ol>
+        <div class="applies-list">
+            <mat-checkbox required>Справка получена</mat-checkbox>
+        </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>Через ИЦ ГУ МВД России</mat-panel-title>
+        </mat-expansion-panel-header>
+        <a href="https://66.мвд.рф/citizens/uslugi/13/Gosudarstvennaja_usluga_po_vidache_sprav" target="_blank">Подробнее...</a> (для жителей Свердловской области; для остальных регионов необходимо выбрать свой регион на сайте)
+        <div class="applies-list">
+            <mat-checkbox required>Справка получена</mat-checkbox>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<div class="action-list">
+    <button mat-flat-button routerLink="/document-list">
+        <mat-icon>
+            arrow_forward
+        </mat-icon>
+        Далее
+    </button>
+</div>
