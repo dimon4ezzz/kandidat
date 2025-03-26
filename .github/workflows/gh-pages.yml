@@ -16,7 +16,7 @@ jobs:
       run: yarn install
     - name: Build project
       run: |
-        yarn build --base-href=/kandidat/
+        yarn build --base-href=/kandidat/ --deployUrl=/kandidat/
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.6.1
       with:
