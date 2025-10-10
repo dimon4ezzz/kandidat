@@ -10,6 +10,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
 import {MatIcon} from "@angular/material/icon";
+import {MatTooltip} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-arrested-application',
@@ -22,7 +23,8 @@ import {MatIcon} from "@angular/material/icon";
     NgOptimizedImage,
     MatButton,
     MatIcon,
-    RouterLink
+    RouterLink,
+    MatTooltip
   ],
   templateUrl: './arrested-application.component.html',
   styleUrl: './arrested-application.component.scss',
@@ -31,6 +33,6 @@ import {MatIcon} from "@angular/material/icon";
 })
 export class ArrestedApplicationComponent {
   public copyToClipboard(): void {
-    navigator.clipboard.writeText("spravka.hr@urfu.ru");
+    navigator.clipboard.writeText("k.i.chubarova@urfu.ru");
   }
 }
